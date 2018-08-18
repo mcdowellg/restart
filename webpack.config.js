@@ -44,8 +44,6 @@ module.exports = {
   context: __dirname,
   entry: {
     home: './src/js/home.js',
-    status: './src/js/status.js',
-    about: './src/js/about.js',
   },
   output: {
       path: __dirname + "/dist",
@@ -57,7 +55,7 @@ module.exports = {
     compress: true,
     port: 8080,
     hot: true,
-    host:'0.0.0.0',
+    //host:'0.0.0.0',
   },
   module: {
     rules: [
@@ -153,8 +151,6 @@ module.exports = {
     }),
     new webpack.DefinePlugin({ // Remove this plugin if you don't plan to define any global constants
       NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      SERVER_URL: JSON.stringify(process.env.SERVER_URL),
-      GMAP_KEY: JSON.stringify(process.env.GMAP_KEY),
     }),
   ],
 };

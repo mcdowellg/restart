@@ -4,83 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Event Registration</title>
-  <link rel="stylesheet" href="dist/713f1052a9c78bab26e6.home.css">
+  <title>Video Call App</title>
+  <link rel="stylesheet" href="dist/cb23a75b83557413a863.home.css">
 </head>
 <body>
+
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Event Registration</a>
+        <a class="navbar-brand" href="/">Video Call App</a>
       </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="/">Home</a></li>
-          <li><a href="status.html">Status</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </div>
-      <!--/.nav-collapse -->
     </div>
   </nav>
+
   <div class="container">
-    <div class="form-area">
-      <h1 class="title">Javascript Meetup</h1>
-      <form action="/register" method="post" id="registrationForm">
-        <div class="form-group">
-          <label for="username">Name*:</label>
-          <input type="text" class="form-control" id="username" name="username">
+
+    <div class="create-room-area" id="createRoomSection">
+      <h1>Video Call Application</h1>
+
+      <div class="input-area">
+        <div class="form-group room-input">
+          <input type="text" placeholder="Enter your room name..." class="form-control" id="roomNameInput">
         </div>
-        <div class="form-group">
-          <label for="email">Email address*:</label>
-          <input type="email" class="form-control" id="email" name="email">
+        <div class="form-group create-room-button">
+          <button class="btn btn-primary" id="createRoom">Create Room</button>
         </div>
-        <div class="form-group">
-          <label for="phone">Phone Number*:</label>
-          <input type="phone" class="form-control" id="phone" name="phone" placeholder="XXX-XXX-XXXX">
-        </div>
-        <div class="form-group">
-          <label for="age">Age*:</label>
-          <input type="number" class="form-control" id="age" name="age" min="0" max="80">
-        </div>
-        <div class="form-group">
-          <label for="profession">I am a:</label>
-          <select class="form-control" id="profession" name="profession">
-            <option value="school">School Student</option>
-            <option value="college">College Student</option>
-            <option value="trainee">Trainee</option>
-            <option value="employee">Employee</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Experience Level:</label>
-          <div>
-            <div class="radio-inline">
-              <label><input type="radio" name="experience" id="experience" value="1" checked>Beginner</label>
-            </div>
-            <div class="radio-inline">
-              <label><input type="radio" name="experience" value="2">Intermediate</label>
-            </div>
-            <div class="radio-inline">
-              <label><input type="radio" name="experience" value="3">Advanced</label>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="comment">What do you expect to learn from this event:</label>
-          <textarea class="form-control" rows="5" name="comment" id="comment"></textarea>
-        </div>
-        <button id="submit" type="submit" class="btn btn-default">Submit</button>
-        <img src="./src/assets/images/loading.gif" alt="loading" class="loading-indicator hidden" id="loadingIndicator">
-      </form>
+      </div>
     </div>
+
+    <div class="info-area" id="infoSection">
+      <h2 class="room-name" id="roomNameText">Room Name: </h2>
+      <div class="room-info">
+        <p>To invite others, Share the below link</p>
+        <div class="room-text">
+          <p class="room-url" id="roomUrl">Here is some text.</p>
+          <button class="copy btn hidden btn-primary">Copy</Button>
+          <button class="copied btn hidden btn-success">Copied</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-area">
+      <div class="video-container">
+        <video class="video-player" id="localVideo"></video>
+      </div>
+    </div>
+
   </div>
-  <script src="dist/713f1052a9c78bab26e6.home.js"></script>
+
+
+  <script src="dist/cb23a75b83557413a863.home.js"></script>
 </body>
 </html>
+
