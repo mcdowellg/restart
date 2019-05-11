@@ -1,0 +1,165 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+
+.DT {
+	position: relative;
+  top: 100;
+  z-index: 400;
+  
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+
+.test {
+	font-size: 9px;
+}
+
+.listing {
+    
+    width: 175px;
+    height: 635px;
+	position: fixed;
+    
+    }
+
+li {
+    color: rgb(25, 29, 29);
+    font-size: 10px;
+    list-style-type: none;
+}
+
+.fc-time{
+   display : none;
+}
+
+.fc-title {
+    font-size: 10px;
+    display: none;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.fc-content {
+  
+  cursor: pointer;
+  position: relative;
+  overflow: visible!important;
+  color: #fff;
+  
+  
+}
+
+/* .fc-content::before {
+  position: absolute;
+  top: 0px;
+  left: -10px;
+  background-color:rgb(176, 183, 187);
+  border-radius: 5px;
+  color: #fff;
+  content: attr(data-tooltip);
+  white-space: pre-wrap;;
+  padding: 1rem;
+  text-transform: none;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  width: 155px;
+  height: 95px;
+  font-size: 10px;
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+} */
+.fc-content::before {
+   opacity: 0;
+}
+
+.fc-content::after {
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  left: -5px;
+  background-color:rgb(176, 183, 187);
+  border-radius: 5px;
+  color: #fff;
+  content: attr(data-tooltip);
+  white-space: pre-wrap;;
+  padding: 1rem;
+  text-transform: none;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  width: 87%;
+  height: 40px;
+  font-size: 8px;
+  /* opacity: 10; */
+  pointer-events: none;
+  /* z-index: 10; */
+
+/* 
+  position: absolute;
+  padding: 1rem;
+  top: 0px;
+  left: -10px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid#607D8B;;
+  content: "";
+  font-size: 10;
+  line-height: 0;
+  margin-left: -5px;
+  width: 155px;
+  height: 95px;
+  z-index:-1;
+  opacity: 0;
+  pointer-events: none;
+  overflow: none;
+  content: attr(data-tooltip);
+  text-transform: none;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease; */
+}
+
+/* .fc-content::before,
+.fc-content::after {
+  color: rgb(247, 239, 239);
+  font-family: monospace;
+  font-size: 10px;
+  opacity: 0;
+  pointer-events: none;
+  text-align: center;
+  background-color: solid rgb(176, 183, 187);
+  z-index:-1;
+} */
+
+.fc-content:hover::before 
+{
+    opacity: 0;
+    
+}
+.fc-content:hover::after {
+  opacity: 1;
+  -webkit-transition: all 0.75s ease;
+  transition: all 2s ease;
+  background-color: solid rgb(176, 183, 187);
+  color: rgb(12, 12, 12);
+  position: absolute;
+  
+  /* border-left: 50px;
+  width: 175px;
+  height: 650px; */
+}
+
+/* .fc-title:hover:before,
+.fc-title:hover:after {
+    opacity: 0;
+    position: absolute;
+    color: red;
+} */
+
+

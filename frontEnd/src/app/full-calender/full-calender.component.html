@@ -1,0 +1,38 @@
+
+
+<div *ngIf="calendarOptions"  id='calendar-container'>
+    <ng-fullcalendar #fullcalendar [options]="calendarOptions" 
+    [ngStyle]="{'background-color': 'aqua'}"
+    (eventClick)="eventClick($event)"
+    (drop)="dropped($event)"  
+    (eventDrop)="updateEvent($event)"
+    (eventResize)="updateEvent($event)" 
+    (clickButton)="clickButton($event)"
+    [(eventsModel)]="events">
+    <!-- (eventClick)="eventrender($event)"> -->
+    </ng-fullcalendar>
+</div>
+
+
+
+<div class='listing' id='external-events'>
+  
+    <strong> Scheduled Jobs </strong>
+  
+	<p>
+    <li #draggableel *ngFor="let list of lists" >
+      {{list.UniqID}} 
+      <!-- {{list._id}} -->
+    </li>
+  <!-- <div cdkDrag>move</div> -->
+  <!-- <li #draggableel >drag me 3</li> -->
+  </p>
+  
+
+  <p>
+    <input type='checkbox' #dropremove id='drop-remove' />
+    <label class='test' for='drop-remove'>remove after drop</label>
+  </p>
+</div>
+
+

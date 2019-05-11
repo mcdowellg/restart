@@ -1,0 +1,19 @@
+<img *ngIf="!loaded" src="/assets/source.gif" alt="loading" />
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="aTrigger" class="row-border hover" id="example" *ngIf="loaded">
+        <thead>
+          <tr>
+            <th>Staff</th>
+            <th *ngFor="let day of Dates">{{day}}</th>
+            <!-- <th>Tuesday</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let info of Info">
+            <!-- <td>Name</td> -->
+            <td *ngFor="let row of info"> {{row}} </td>
+            <!-- <td>{{ rost.title }}</td>
+            <td>{{ rost.dates }}</td> -->
+          </tr>
+        </tbody>
+</table>
+

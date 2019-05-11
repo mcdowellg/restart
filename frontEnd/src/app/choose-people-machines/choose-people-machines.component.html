@@ -1,0 +1,28 @@
+<h4>Resources</h4>
+<div mat-dialog-content>
+  <mat-label>Staff</mat-label>
+  <mat-select [(ngModel)]="chosenPerson">
+    <mat-option *ngFor="let person of people" [value]="person">
+      {{ person }}
+    </mat-option>
+  </mat-select>
+</div>
+
+<div mat-dialog-machine>
+  <mat-label>Machinery</mat-label>
+  <mat-select [(ngModel)]="chosenMachine">
+    <mat-option value="volvo">Volvo</mat-option>
+    <mat-option value="saab">Saab</mat-option>
+    <mat-option value="mercedes">Mercedes</mat-option>
+    <mat-option value="audi">Audi</mat-option>
+  </mat-select>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="confirmSelection()" color="primary">
+    Confirm
+  </button>
+  <button mat-button (click)="dialogRef.close()">
+    Cancel
+  </button>
+</div>
