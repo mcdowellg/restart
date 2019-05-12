@@ -1,5 +1,6 @@
 const Event = require("../models/Event");
 const List = require("../models/List");
+const GPS = require("../models/GPS");
 
 exports.listAllLists = (req, res) => {
   // Article.$where('this.firstname === this.lastname')
@@ -23,9 +24,30 @@ exports.listAllEvents = (req, res) => {
 
 };
 
-exports.createNewArticle = (req, res) => {
+exports.listAllGPS = (req, res) => {
+  // Article.$where('this.firstname === this.lastname')
+  GPS.find({}, (err, article) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.status(200).json(article);
+  });
+
+};
+
+exports.createNewEvent = (req, res) => {
   let newEvent = new Event(req.body);
   newEvent.save((err, event) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.status(201).json(event);
+  });
+};
+
+exports.createNewGPS = (req, res) => {
+  let newGPS = new GPS(req.body);
+  newGPS.save((err, event) => {
     if (err) {
       res.status(500).send(err);
     }

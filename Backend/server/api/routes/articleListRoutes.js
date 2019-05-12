@@ -7,7 +7,7 @@ module.exports = function(app) {
   app
   .route("/events")
   .get(articleList.listAllEvents)
-  .post(articleList.createNewArticle);
+  .post(articleList.createNewEvent);
 
   app
   .route("/event/:eventid")
@@ -15,9 +15,18 @@ module.exports = function(app) {
   .patch(articleList.updateArticle)
 
   app
-    .route("/lists")
-    .get(articleList.listAllLists)
+  .route("/lists")
+  .get(articleList.listAllLists)
 
+  app
+  .route("/gps")
+  .get(articleList.listAllGPS)
+  .post(articleList.createNewGPS);
+
+  // app
+  // .route("/gps/:eventid")
+  // .get(articleList.readArticle)
+  // .patch(articleList.updateArticle)
 
 //   .delete(articleList.deleteArticle);
 
