@@ -9,10 +9,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class DataServiceService {
 
-  eventsUrl = 'http://localhost:3000/events';
-  eventUrl = 'http://localhost:3000/event/';
-  gpsUrl = 'http://localhost:3000/gps';
-  listURL = 'http://localhost:3000/lists';
+  eventsUrl = 'https://gmcdnodeapp.azurewebsites.net/events';
+  eventUrl = 'https://gmcdnodeapp.azurewebsites.net/event/';
+  gpsUrl = 'https://gmcdnodeapp.azurewebsites.net/gps';
+  listURL = 'https://gmcdnodeapp.azurewebsites.net/lists';
   event: any;
   list:any;
   headers: HttpHeaders;

@@ -11,7 +11,6 @@
   "type": "git",
   "url": ""
   },
-
   "author": "paul",
   "license": "ISC",
   "devDependencies": {
