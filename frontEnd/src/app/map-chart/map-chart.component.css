@@ -4,3 +4,7 @@
     width: 100%;  /* The width is the width of the web page */
     position:absolute;
   }
+
+  div {
+    text-align:right
+  }

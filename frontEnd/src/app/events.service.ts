@@ -12,6 +12,7 @@ export class EventsService {
 eventsUrl = 'https://gmcdnodeapp.azurewebsites.net/events';
   eventUrl = 'https://gmcdnodeapp.azurewebsites.net/event/';
   listURL = 'https://gmcdnodeapp.azurewebsites.net/lists';
+  gpsUrl = 'https://gmcdnodeapp.azurewebsites.net/gps';
   event: any;
   list:any;
   headers: HttpHeaders;
@@ -38,6 +39,10 @@ getData():Observable<any> {
             console.log(this.event);
             return this.event;
   }
+
+getGPSData():Observable<any> {
+    return this.http.get<any>(this.gpsUrl);
+}
 
 PostEvent(eventPassed: any):Observable<any> {
         console.log(eventPassed);
