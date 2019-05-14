@@ -1,6 +1,7 @@
 const Event = require("../models/Event");
 const List = require("../models/List");
 const GPS = require("../models/GPS");
+const Blocks = require("../models/Blocks");
 
 exports.listAllLists = (req, res) => {
   // Article.$where('this.firstname === this.lastname')
@@ -10,7 +11,16 @@ exports.listAllLists = (req, res) => {
     }
     res.status(200).json(article);
   });
+};
 
+exports.listAllBlocks = (req, res) => {
+  // Article.$where('this.firstname === this.lastname')
+  Blocks.find({}, (err, article) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.status(200).json(article);
+  });
 };
 
 exports.listAllEvents = (req, res) => {

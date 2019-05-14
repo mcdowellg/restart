@@ -23,6 +23,11 @@ module.exports = function(app) {
   .get(articleList.listAllGPS)
   .post(articleList.createNewGPS);
 
+  app
+  .route("/blocks")
+  .get(articleList.listAllBlocks)
+  
+
   // app
   // .route("/gps/:eventid")
   // .get(articleList.readArticle)
