@@ -14,6 +14,8 @@ eventsUrl = 'https://gmcdnodeapp.azurewebsites.net/events';
   listURL = 'https://gmcdnodeapp.azurewebsites.net/lists';
   gpsUrl = 'https://gmcdnodeapp.azurewebsites.net/gps';
   blockUrl = 'https://gmcdnodeapp.azurewebsites.net/blocks';
+
+  
   event: any;
   list:any;
   blocks: any;
