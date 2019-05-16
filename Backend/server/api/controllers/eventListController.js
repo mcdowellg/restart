@@ -1,7 +1,9 @@
 const Event = require("../models/Event");
 const List = require("../models/List");
 const GPS = require("../models/GPS");
-const Blocks = require("../models/Blocks");
+const M10 = require("../../M10 Triplebank.geojson");
+const M11 = require("../../M11 Triplebank.geojson");
+
 
 exports.listAllLists = (req, res) => {
   // Article.$where('this.firstname === this.lastname')
@@ -14,13 +16,17 @@ exports.listAllLists = (req, res) => {
 };
 
 exports.listAllBlocks = (req, res) => {
+
+  console.log(M10);
+  return M10;
+  
   // Article.$where('this.firstname === this.lastname')
-  Blocks.find({}, (err, article) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-    res.status(200).json(article);
-  });
+  // Blocks.find({}, (err, article) => {
+  //   if (err) {
+  //     res.status(500).send(err);
+  //   }
+  //   res.status(200).json(article);
+  // });
 };
 
 exports.listAllEvents = (req, res) => {

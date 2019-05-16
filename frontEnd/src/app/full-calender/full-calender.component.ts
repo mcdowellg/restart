@@ -177,10 +177,10 @@ console.log(this.draggable._results.length);
       // },
 
       header: {
-        left: '',
-        center: 'title',
-        right: 'prev,next today'
-        // right: 'dayGridMonth,dayGridWeek,timeGridDay'
+        left: 'title',
+        center: 'prev,next today',
+        // right: 'prev,next today'
+        right: 'dayGridMonth,dayGridWeek,timeGridDay'
       },
 
       buttonIcons: {

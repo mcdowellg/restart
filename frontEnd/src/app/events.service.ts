@@ -13,8 +13,10 @@ eventsUrl = 'https://gmcdnodeapp.azurewebsites.net/events';
   eventUrl = 'https://gmcdnodeapp.azurewebsites.net/event/';
   listURL = 'https://gmcdnodeapp.azurewebsites.net/lists';
   gpsUrl = 'https://gmcdnodeapp.azurewebsites.net/gps';
+  blockUrl = 'https://gmcdnodeapp.azurewebsites.net/blocks';
   event: any;
   list:any;
+  blocks: any;
   headers: HttpHeaders;
 
 date = Date.now();
@@ -33,6 +35,12 @@ getListData():Observable<any> {
             console.log(this.list);
             return this.list;
   }
+
+getBlockData():Observable<any> {
+    this.blocks = this.http.get<any>(this.blockUrl);
+    console.log(this.blocks);
+    return this.blocks;
+}
 
 getData():Observable<any> {
             this.event = this.http.get<any>(this.eventsUrl);
