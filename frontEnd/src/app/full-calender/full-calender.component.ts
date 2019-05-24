@@ -24,7 +24,7 @@ import { Content } from '@angular/compiler/src/render3/r3_ast';
 @Component({
   selector: 'app-full-calender',
   templateUrl: './full-calender.component.html',
-  styleUrls: ['./full-calender.component.css']
+  styleUrls: ['./full-calender.component.scss']
 })
 export class FullCalenderComponent implements AfterViewInit {
 
@@ -134,6 +134,16 @@ console.log(this.draggable._results.length);
 
 
     this.calendarOptions = {
+      slotDuration: '00:15:00',
+      // slotLabelInterval: 15,
+      // slotLabelFormat: 'h(:mm)a',
+      
+      slotLabelFormat: {
+        hour: 'numeric',
+        minute: '2-digit',
+        omitZeroMinute: true,
+        meridiem: 'short'
+      },
       editable: true,
       eventLimit: false,
       // titleFormat: 'MMM D YYYY',
@@ -145,7 +155,7 @@ console.log(this.draggable._results.length);
       selectable: true,
       droppable: true,
       events: this.events,
-
+      allDayDefault: false,
       buttonText: {
             today: 'Today',
             month: 'Month',
@@ -176,11 +186,14 @@ console.log(this.draggable._results.length);
       //   }
       // },
 
+      nowIndicator: true,
+      // slotLabelFormat:'h(:mm)a',
+
       header: {
         left: 'title',
         center: 'prev,next today',
         // right: 'prev,next today'
-        right: 'dayGridMonth,dayGridWeek,timeGridDay'
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
 
       buttonIcons: {

@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
 
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+@import '~@fullcalendar/timegrid/main.css';
+@import '~@fullcalendar/list/main.css';
+
 .DT {
 	position: relative;
   top: 100;
@@ -34,10 +39,6 @@ li {
     list-style-type: none;
 }
 
-.fc-time{
-   display : none;
-}
-
 .fc-title {
     font-size: 10px;
     display: none;
@@ -53,29 +54,8 @@ li {
   overflow: visible!important;
   color: #fff;
   
-  
 }
 
-/* .fc-content::before {
-  position: absolute;
-  top: 0px;
-  left: -10px;
-  background-color:rgb(176, 183, 187);
-  border-radius: 5px;
-  color: #fff;
-  content: attr(data-tooltip);
-  white-space: pre-wrap;;
-  padding: 1rem;
-  text-transform: none;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  width: 155px;
-  height: 95px;
-  font-size: 10px;
-  z-index: -1;
-  opacity: 0;
-  pointer-events: none;
-} */
 .fc-content::before {
    opacity: 0;
 }
@@ -100,42 +80,7 @@ li {
   /* opacity: 10; */
   pointer-events: none;
   /* z-index: 10; */
-
-/* 
-  position: absolute;
-  padding: 1rem;
-  top: 0px;
-  left: -10px;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid#607D8B;;
-  content: "";
-  font-size: 10;
-  line-height: 0;
-  margin-left: -5px;
-  width: 155px;
-  height: 95px;
-  z-index:-1;
-  opacity: 0;
-  pointer-events: none;
-  overflow: none;
-  content: attr(data-tooltip);
-  text-transform: none;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease; */
 }
-
-/* .fc-content::before,
-.fc-content::after {
-  color: rgb(247, 239, 239);
-  font-family: monospace;
-  font-size: 10px;
-  opacity: 0;
-  pointer-events: none;
-  text-align: center;
-  background-color: solid rgb(176, 183, 187);
-  z-index:-1;
-} */
 
 .fc-content:hover::before 
 {
@@ -154,12 +99,4 @@ li {
   width: 175px;
   height: 650px; */
 }
-
-/* .fc-title:hover:before,
-.fc-title:hover:after {
-    opacity: 0;
-    position: absolute;
-    color: red;
-} */
-
 

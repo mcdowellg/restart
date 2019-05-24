@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "Name": "CWOSBLA", "descriptio": "CWO SBLA\n3.9 ha", "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.908590579623308, -41.475559899147157, 0.0 ], [ 173.907012318383607, -41.472328416464052, 0.0 ], [ 173.908273306959586, -41.472220913983541, 0.0 ], [ 173.90980754029971, -41.475176750694899, 0.0 ], [ 173.908590579623308, -41.475559899147157, 0.0 ] ] ] } },
+{ "type": "Feature", "properties": { "Name": "CWOCHDA", "descriptio": "CWO CHDA\n1.48 ha", "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.908163504556398, -41.475701147694899, 0.0 ], [ 173.906575084811095, -41.472446723335089, 0.0 ], [ 173.907012318383607, -41.472328416464052, 0.0 ], [ 173.908589728842799, -41.475566159731692, 0.0 ], [ 173.908163504556398, -41.475701147694899, 0.0 ] ] ] } }
+]
+}

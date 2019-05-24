@@ -1,0 +1,6 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "Name": "BL3SBLA", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.74795588639941, -41.563212463918823, 0.0 ], [ 173.746126198623386, -41.562751964564292, 0.0 ], [ 173.747465799833492, -41.560415107748689, 0.0 ], [ 173.750241620707186, -41.561193831365372, 0.0 ], [ 173.749260478760789, -41.563199837971723, 0.0 ], [ 173.748487343255192, -41.562909178358282, 0.0 ], [ 173.74795588639941, -41.563212463918823, 0.0 ] ] ] } }
+]
+}

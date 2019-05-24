@@ -1,0 +1,6 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "Name": "PLVGTRA", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.967290125593195, -41.460756507226961, 0.0 ], [ 173.966269353187414, -41.459500668362892, 0.0 ], [ 173.968077650588214, -41.459172085930327, 0.0 ], [ 173.968832530484804, -41.459985603439463, 0.0 ], [ 173.968576672207206, -41.460115883061462, 0.0 ], [ 173.968778186370912, -41.460560216383001, 0.0 ], [ 173.967290125593195, -41.460756507226961, 0.0 ] ] ] } }
+]
+}

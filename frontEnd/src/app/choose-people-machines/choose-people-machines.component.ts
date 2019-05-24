@@ -5,7 +5,7 @@ import { MatDialog, MatDialogModule, MatFormField, MatDialogRef} from '@angular/
 @Component({
   selector: 'app-choose-people-machines',
   templateUrl: './choose-people-machines.component.html',
-  styleUrls: ['./choose-people-machines.component.css']
+  styleUrls: ['./choose-people-machines.component.scss']
 })
 export class ChoosePeopleMachinesComponent implements OnInit {
 

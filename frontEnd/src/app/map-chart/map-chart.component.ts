@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { google } from '@google/maps';
 import { EventsService } from '../events.service'
+
 // import { } from '@types/googlemaps';
 
 declare var google: any;
+declare const Buffer;
 
 @Component({
   selector: 'app-map-chart',
   templateUrl: './map-chart.component.html',
-  styleUrls: ['./map-chart.component.css']
+  styleUrls: ['./map-chart.component.scss']
 })
 
 export class MapChartComponent {  
@@ -26,8 +28,19 @@ export class MapChartComponent {
   ngOnInit() {
 
     var historicalOverlay;
-    this.loadBlocks();
-    this.loadHistoricRoutes();
+    console.log("is this running when chart is loaded?")
+    
+setTimeout(()=>{
+  this.loadHistoricRoutes();
+  }, 20000)
+
+    // setTimeout(()=>{
+      this.loadBlocks();
+    // }, 20000)
+
+    
+
+    
 
     var mapStyle = [{
       'stylers': [{'visibility': 'on'}]
@@ -77,36 +90,44 @@ export class MapChartComponent {
   }
 
   loadBlocks() {
-    
+    console.log("when does this run?")
     this.dataService.getBlockData() // should give us M10 data in geoJSON format, not asyncronous
-    // .pipe(
-    //   filter(p => p.coords != undefined))
+    
+    //// .pipe(
+    ////   filter(p => p.coords != undefined))
       .subscribe(
         res => {
-          console.log("returning blocks");
+          console.log("Gotta get this coming up in console!")
+          console.log(res)
+
+
+
           if (res) {
-            this.blocks = res;
-            var outerCoords = [
-              {lat: -41.844, lng: 173.5}, // north west
-              {lat: -41.344, lng: 173.5}, // south west
-              {lat: -41.344, lng: 173.0}, // south east
-              {lat: -41.844, lng: 173.0}  // north east
-            ];
-            console.log(outerCoords)
+      //       this.blocks = res;
+      //       var outerCoords = [
+      //         {lat: -41.844, lng: 173.5}, // north west
+      //         {lat: -41.344, lng: 173.5}, // south west
+      //         {lat: -41.344, lng: 173.0}, // south east
+      //         {lat: -41.844, lng: 173.0}  // north east
+      //       ];
+      //       console.log(outerCoords)
 
-            var geoJSON = {"type": "FeatureCollection",
-            "features": [{ "type": "Feature", "properties": { "Name": "M13CHDF", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.869027481569987, -41.482158401244, 0.0 ], [ 173.869383387470009, -41.482114812916997, 0.0 ], [ 173.870291644750097, -41.486194197415003, 0.0 ], [ 173.869937820950014, -41.486240055136001, 0.0 ], [ 173.869027481569987, -41.482158401244, 0.0 ] ] ] } },
-            { "type": "Feature", "properties": { "Name": "M13CHDA", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.872709398170002, -41.485888473129002, 0.0 ], [ 173.871802254459993, -41.481797749342, 0.0 ], [ 173.87183664054001, -41.481793475484999, 0.0 ], [ 173.871864592370002, -41.481919616001001, 0.0 ], [ 173.872198493940004, -41.481878784959001, 0.0 ], [ 173.872165549449988, -41.481752823134997, 0.0 ], [ 173.872235216919989, -41.481744207696998, 0.0 ], [ 173.872884221090004, -41.484589099859001, 0.0 ], [ 173.872518372970006, -41.484637163183002, 0.0 ], [ 173.872801551089992, -41.485876729716999, 0.0 ], [ 173.872709398170002, -41.485888473129002, 0.0 ] ] ] } },
-            { "type": "Feature", "properties": { "Name": "M13CHDB", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.871802254459993, -41.481797749342, 0.0 ], [ 173.872709398170002, -41.485888473129002, 0.0 ], [ 173.871979023480009, -41.4859824778, 0.0 ], [ 173.871075723589996, -41.481889376044997, 0.0 ], [ 173.871802254459993, -41.481797749342, 0.0 ] ] ] } },
-            { "type": "Feature", "properties": { "Name": "M13CHDC", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.870958662580108, -41.481914135449003, 0.0 ], [ 173.87187762727001, -41.485995188677997, 0.0 ], [ 173.871448501689997, -41.486050223519001, 0.0 ], [ 173.870529309469902, -41.481964294378002, 0.0 ], [ 173.870958662580108, -41.481914135449003, 0.0 ] ] ] } },
-            { "type": "Feature", "properties": { "Name": "M13CHDE", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.869383387470009, -41.482114812916997, 0.0 ], [ 173.86996127929001, -41.482042007433002, 0.0 ], [ 173.870874850679996, -41.486123624534997, 0.0 ], [ 173.870291644750097, -41.486194197415003, 0.0 ], [ 173.869383387470009, -41.482114812916997, 0.0 ] ] ] } },
-            { "type": "Feature", "properties": { "Name": "M13CHDG", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.868669961189994, -41.482203962478998, 0.0 ], [ 173.869027481569987, -41.482158401244, 0.0 ], [ 173.869937820950014, -41.486240055136001, 0.0 ], [ 173.869582135819996, -41.486284802248001, 0.0 ], [ 173.868669961189994, -41.482203962478998, 0.0 ] ] ] } }]
-          }
 
-            var data = (geoJSON);
-            // var data = (JSON.parse('[{"lat":-41.844, "lng": 173.0}, {"lat": -41.344, "lng": 173.5},  {"lat": -41.344, "lng": 173.0}, {"lat": -41.844, "lng": 173.0}]'));
-            // this.map.data.add({geometry: new google.maps.Data.Polygon([data])});
-            this.map.data.addGeoJson(data);
+          //   var geoJWorking = {"type": "FeatureCollection",
+          //   "features": [{ "type": "Feature", "properties": { "Name": "M13CHDF", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.869027481569987, -41.482158401244, 0.0 ], [ 173.869383387470009, -41.482114812916997, 0.0 ], [ 173.870291644750097, -41.486194197415003, 0.0 ], [ 173.869937820950014, -41.486240055136001, 0.0 ], [ 173.869027481569987, -41.482158401244, 0.0 ] ] ] } },
+          //   { "type": "Feature", "properties": { "Name": "M13CHDA", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.872709398170002, -41.485888473129002, 0.0 ], [ 173.871802254459993, -41.481797749342, 0.0 ], [ 173.87183664054001, -41.481793475484999, 0.0 ], [ 173.871864592370002, -41.481919616001001, 0.0 ], [ 173.872198493940004, -41.481878784959001, 0.0 ], [ 173.872165549449988, -41.481752823134997, 0.0 ], [ 173.872235216919989, -41.481744207696998, 0.0 ], [ 173.872884221090004, -41.484589099859001, 0.0 ], [ 173.872518372970006, -41.484637163183002, 0.0 ], [ 173.872801551089992, -41.485876729716999, 0.0 ], [ 173.872709398170002, -41.485888473129002, 0.0 ] ] ] } },
+          //   { "type": "Feature", "properties": { "Name": "M13CHDB", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.871802254459993, -41.481797749342, 0.0 ], [ 173.872709398170002, -41.485888473129002, 0.0 ], [ 173.871979023480009, -41.4859824778, 0.0 ], [ 173.871075723589996, -41.481889376044997, 0.0 ], [ 173.871802254459993, -41.481797749342, 0.0 ] ] ] } },
+          //   { "type": "Feature", "properties": { "Name": "M13CHDC", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.870958662580108, -41.481914135449003, 0.0 ], [ 173.87187762727001, -41.485995188677997, 0.0 ], [ 173.871448501689997, -41.486050223519001, 0.0 ], [ 173.870529309469902, -41.481964294378002, 0.0 ], [ 173.870958662580108, -41.481914135449003, 0.0 ] ] ] } },
+          //   { "type": "Feature", "properties": { "Name": "M13CHDE", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.869383387470009, -41.482114812916997, 0.0 ], [ 173.86996127929001, -41.482042007433002, 0.0 ], [ 173.870874850679996, -41.486123624534997, 0.0 ], [ 173.870291644750097, -41.486194197415003, 0.0 ], [ 173.869383387470009, -41.482114812916997, 0.0 ] ] ] } },
+          //   { "type": "Feature", "properties": { "Name": "M13CHDG", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.868669961189994, -41.482203962478998, 0.0 ], [ 173.869027481569987, -41.482158401244, 0.0 ], [ 173.869937820950014, -41.486240055136001, 0.0 ], [ 173.869582135819996, -41.486284802248001, 0.0 ], [ 173.868669961189994, -41.482203962478998, 0.0 ] ] ] } }]
+          // }
+
+          // console.log(geoJWorking);
+          var geoJSON = JSON.parse(res);
+
+      //       // var data = (JSON.parse('[{"lat":-41.844, "lng": 173.0}, {"lat": -41.344, "lng": 173.5},  {"lat": -41.344, "lng": 173.0}, {"lat": -41.844, "lng": 173.0}]'));
+      //       // this.map.data.add({geometry: new google.maps.Data.Polygon([data])});
+            this.map.data.addGeoJson(geoJSON);
           }
         },
         err => {

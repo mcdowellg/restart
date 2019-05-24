@@ -8,7 +8,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FullCalenderComponent } from './full-calender/full-calender.component';
-import { FullCalendarModule } from 'ng-fullcalendar'
+// import { FullCalendarModule } from 'ng-fullcalendar'
+import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
 
 import { DatePipe } from '@angular/common';
 import { ChoosePeopleMachinesComponent } from './choose-people-machines/choose-people-machines.component';
@@ -27,17 +28,19 @@ import { HeaderComponent } from './header/header.component';
 import { DataTablesModule } from 'angular-datatables';
 import { GanttChartComponent } from './gantt-chart/gantt-chart.component';
 import { MapChartComponent } from './map-chart/map-chart.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FullCalenderComponent,
+    // FullCalenderComponent,
     ChoosePeopleMachinesComponent,
     DataTableComponent,
     HeaderComponent,
     GanttChartComponent,
     MapChartComponent,
+    CalendarComponent,
     
    
   ],
@@ -46,7 +49,7 @@ import { MapChartComponent } from './map-chart/map-chart.component';
 	RouterModule.forRoot([
 	{
 		path: "full-calendar", 
-		component: FullCalenderComponent
+		component: CalendarComponent
 	},
 	{
 		path: "data-table", 

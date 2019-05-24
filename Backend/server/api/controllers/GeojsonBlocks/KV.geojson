@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "Name": "KV07CHA", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 176.958131302605494, -39.626286916303997, 0.0 ], [ 176.95808239934729, -39.626273989123497, 0.0 ], [ 176.959536564954391, -39.625256201520919, 0.0 ], [ 176.959669249234906, -39.625303963750817, 0.0 ], [ 176.956132889884913, -39.6277313061656, 0.0 ], [ 176.955497449421301, -39.627204886434619, 0.0 ], [ 176.956304789478111, -39.626621423973702, 0.0 ], [ 176.958131302605494, -39.626286916303997, 0.0 ] ] ] } },
+{ "type": "Feature", "properties": { "Name": "KV06CHA", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 176.956124033700405, -39.627730331283402, 0.0 ], [ 176.959646064690503, -39.625314641574732, 0.0 ], [ 176.959953330377402, -39.625508733715122, 0.0 ], [ 176.95651088344701, -39.627991504879652, 0.0 ], [ 176.956124033700405, -39.627730331283402, 0.0 ] ] ] } }
+]
+}

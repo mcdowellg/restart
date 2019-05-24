@@ -16,14 +16,21 @@ exports.listAllLists = (req, res) => {
 };
 
 exports.listAllBlocks = (req, res) => {
-// fs.readFile('../../M10Triplebank.geojson', function(err, M10){
-//   if(err){
-//   console.log("error in loading geojson");
-//   }
-//   console.log(M10);
-//   return M10;
-// })
-  console.log("get this working")
+var block;
+fs.readFile('D:/home/site/wwwroot/api/controllers/GeojsonBlocks/PRWNZVineyards.geojson', "utf8", function(err, Blk){
+  if(err){
+  res.status(500).send(err);
+  }
+  console.log(Blk);
+
+  // let bufferOriginal = Buffer.from(JSON.parse(Blk).data);
+  // console.log(bufferOriginal);
+  // jsonOut = bufferOriginal.toString('utf8')
+  res.status(200).json(Blk);
+})
+  // var a =  "get this working";
+  
+  
   // Article.$where('this.firstname === this.lastname')
   // Blocks.find({}, (err, article) => {
   //   if (err) {

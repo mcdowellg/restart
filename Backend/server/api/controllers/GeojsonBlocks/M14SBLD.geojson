@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "M14SBLD", "description": null, "timestamp": null, "begin": null, "end": null, "altitudeMode": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.9843280942315, -41.486195999075747, 0.0 ], [ 173.985905363898496, -41.488145227300173, 0.0 ], [ 173.990011449493608, -41.48629119873727, 0.0 ], [ 173.98841729230719, -41.484349447790372, 0.0 ], [ 173.9843280942315, -41.486195999075747, 0.0 ] ] ] } }
+]
+}

@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "MV1PGRC", "description": null, "timestamp": null, "begin": null, "end": null, "altitudeMode": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.884406520057809, -41.530520463158489, 0.0 ], [ 173.885885648125907, -41.531076050147867, 0.0 ], [ 173.885689084604508, -41.528950145667878, 0.0 ], [ 173.885547048811105, -41.528968939911863, 0.0 ], [ 173.885317518596509, -41.528890505002011, 0.0 ], [ 173.884790142794913, -41.528904288390883, 0.0 ], [ 173.884339465939604, -41.529065364009902, 0.0 ], [ 173.884406520057809, -41.530520463158489, 0.0 ] ] ] } }
+]
+}

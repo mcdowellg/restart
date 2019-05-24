@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "Name": "m", "descriptio": "undefined", "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 173.985189074200008, -41.4771857729, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "m", "descriptio": "undefined", "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 173.98454863180001, -41.477343540100001, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "m", "descriptio": "undefined", "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 173.983754143999903, -41.477502980899999, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "m", "descriptio": "undefined", "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 173.982106869500086, -41.477702751599999, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "m", "descriptio": "undefined", "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 173.981281988, -41.477726992599997, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "m", "descriptio": "undefined", "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 173.980452683099998, -41.477732984, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "m", "descriptio": "undefined", "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": -1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Point", "coordinates": [ 173.982943591399987, -41.477651747300001, 0.0 ] } }
+]
+}

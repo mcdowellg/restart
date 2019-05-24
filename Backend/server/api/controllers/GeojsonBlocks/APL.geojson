@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "Name": "APLCHD96", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 177.92886715947779, -38.6726819135041, 0.0 ], [ 177.929170203277494, -38.672831102899529, 0.0 ], [ 177.928053944482599, -38.674472698485772, 0.0 ], [ 177.927551110083414, -38.674254908888983, 0.0 ], [ 177.928572584679102, -38.672677461543977, 0.0 ], [ 177.928806835642689, -38.672778906369849, 0.0 ], [ 177.92886715947779, -38.6726819135041, 0.0 ] ] ] } },
+{ "type": "Feature", "properties": { "Name": "APLCHD95", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 177.928062455399413, -38.674472698492707, 0.0 ], [ 177.929170203277494, -38.672831102899529, 0.0 ], [ 177.929246061892599, -38.672874222602893, 0.0 ], [ 177.929893779353591, -38.671962075420652, 0.0 ], [ 177.930161925018211, -38.672081868835242, 0.0 ], [ 177.928440364213714, -38.674620538606092, 0.0 ], [ 177.928062455399413, -38.674472698492707, 0.0 ] ] ] } }
+]
+}

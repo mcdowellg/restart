@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "Name": "BRTCHD11", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 177.873725853225494, -38.648490820938747, 0.0 ], [ 177.875874421410487, -38.645232576692308, 0.0 ], [ 177.876899338466103, -38.645682184252223, 0.0 ], [ 177.874750714316093, -38.648906459390609, 0.0 ], [ 177.873725853225494, -38.648490820938747, 0.0 ] ] ] } },
+{ "type": "Feature", "properties": { "Name": "BRTCHD3", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 177.872492968205705, -38.652468308343252, 0.0 ], [ 177.873028231407403, -38.652680899449201, 0.0 ], [ 177.871123421607507, -38.655540443420442, 0.0 ], [ 177.870702464428604, -38.655236744781838, 0.0 ], [ 177.872492968205705, -38.652468308343252, 0.0 ] ] ] } },
+{ "type": "Feature", "properties": { "Name": "BRTCHD2", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 177.872478149437711, -38.652466768827118, 0.0 ], [ 177.870705294466404, -38.65521188177491, 0.0 ], [ 177.870029037576586, -38.654738445877619, 0.0 ], [ 177.871741159228407, -38.652158443033343, 0.0 ], [ 177.872478149437711, -38.652466768827118, 0.0 ] ] ] } }
+]
+}

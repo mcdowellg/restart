@@ -5,7 +5,7 @@ declare var google: any;
 @Component({
   selector: 'app-gantt-chart',
   templateUrl: './gantt-chart.component.html',
-  styleUrls: ['./gantt-chart.component.css']
+  styleUrls: ['./gantt-chart.component.scss']
 })
 
 export class GanttChartComponent implements OnInit {

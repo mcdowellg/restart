@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "Name": "GRASYRB", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 176.7101918530185, -39.644818725740137, 0.0 ], [ 176.710146625211109, -39.644058158134747, 0.0 ], [ 176.710935309400014, -39.644067792269063, 0.0 ], [ 176.710957508673005, -39.644741591921097, 0.0 ], [ 176.7101918530185, -39.644818725740137, 0.0 ] ] ] } },
+{ "type": "Feature", "properties": { "Name": "GRASYRA", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 176.710261901556805, -39.647566362071622, 0.0 ], [ 176.710187421069605, -39.644805717982408, 0.0 ], [ 176.711402863174897, -39.644733521669899, 0.0 ], [ 176.711521162572694, -39.647485156939368, 0.0 ], [ 176.710261901556805, -39.647566362071622, 0.0 ] ] ] } }
+]
+}

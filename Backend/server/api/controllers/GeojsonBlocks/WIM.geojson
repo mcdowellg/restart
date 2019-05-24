@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "Name": "WIMSYRA", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 176.741125132494489, -39.647858082656462, 0.0 ], [ 176.740598810176607, -39.647103688524368, 0.0 ], [ 176.74095245985319, -39.64707367967825, 0.0 ], [ 176.74087358008029, -39.64696065103125, 0.0 ], [ 176.741894060810694, -39.646831611485993, 0.0 ], [ 176.741893222246603, -39.646907638577261, 0.0 ], [ 176.742018850624788, -39.646877268779207, 0.0 ], [ 176.742859495631507, -39.647986376027951, 0.0 ], [ 176.741125132494489, -39.647858082656462, 0.0 ] ] ] } },
+{ "type": "Feature", "properties": { "Name": "WIMSYRN", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 176.74050367427489, -39.643166666015212, 0.0 ], [ 176.738985031386392, -39.64156886821673, 0.0 ], [ 176.740029930549809, -39.641458935691119, 0.0 ], [ 176.741266147797489, -39.642715352262123, 0.0 ], [ 176.74050367427489, -39.643166666015212, 0.0 ] ] ] } }
+]
+}

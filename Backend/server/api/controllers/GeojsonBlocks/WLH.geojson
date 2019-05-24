@@ -1,0 +1,6 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "Name": "WLH ries", "descriptio": null, "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": 1, "extrude": 0, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 173.821031104526014, -41.526864031589717, 0.0 ], [ 173.820858373655994, -41.525920738783221, 0.0 ], [ 173.822751258049408, -41.525571681575137, 0.0 ], [ 173.823212769084506, -41.52707663018456, 0.0 ], [ 173.822336057017111, -41.527134976037189, 0.0 ], [ 173.821031104526014, -41.526864031589717, 0.0 ] ] ] } }
+]
+}
