@@ -1,0 +1,27 @@
+<div cdkDropListGroup>
+    <div class="example-container">
+      <h3>Scheduled Tasks</h3>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="scheduledTasks"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of scheduledTasks" cdkDrag>{{item.UniqID}}</div>
+      </div>
+    </div>
+  
+    <div class="example-container">
+      <h3>Ordered Tasks</h3>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="allocatedTasks"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of allocatedTasks" cdkDrag>{{item.UniqID}}</div>
+      </div>
+    </div>
+  </div>
+  
+  

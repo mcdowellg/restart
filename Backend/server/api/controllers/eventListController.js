@@ -1,6 +1,7 @@
 const Event = require("../models/Event");
 const List = require("../models/List");
 const GPS = require("../models/GPS");
+const Tasks = require("../models/Tasks");
 const fs = require('fs');
 // const M11 = require("../../M11Triplebank.geojson");
 
@@ -51,6 +52,17 @@ exports.listAllEvents = (req, res) => {
 
 };
 
+exports.listAllTasks = (req, res) => {
+  // Article.$where('this.firstname === this.lastname')
+  Tasks.find({}, (err, article) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.status(200).json(article);
+  });
+
+};
+
 exports.listAllGPS = (req, res) => {
   // Article.$where('this.firstname === this.lastname')
   GPS.find({}, (err, article) => {
@@ -75,6 +87,16 @@ exports.createNewEvent = (req, res) => {
 exports.createNewGPS = (req, res) => {
   let newGPS = new GPS(req.body);
   newGPS.save((err, event) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.status(201).json(event);
+  });
+};
+
+exports.createNewTask = (req, res) => {
+  let newTask = new Tasks(req.body);
+  newTask.save((err, event) => {
     if (err) {
       res.status(500).send(err);
     }

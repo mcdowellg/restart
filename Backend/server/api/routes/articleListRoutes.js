@@ -10,6 +10,11 @@ module.exports = function(app) {
   .post(articleList.createNewEvent);
 
   app
+  .route("/tasks")
+  .get(articleList.listAllTasks)
+  .post(articleList.createNewTask);
+
+  app
   .route("/event/:eventid")
   .get(articleList.readArticle)
   .patch(articleList.updateArticle)

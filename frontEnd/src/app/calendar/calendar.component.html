@@ -1,15 +1,16 @@
 <nav>
-<div class='listing' id='external-events'>
+<div class='listing' #externalevents id='external-events'>
   
   <strong> Scheduled Jobs </strong>
 
 <p>
-  <li #draggableel *ngFor="let list of lists" >
+  <li class = 'drag' #draggableel *ngFor="let list of lists">
     {{list.UniqID}} 
+    
     <!-- {{list._id}} -->
   </li>
 <!-- <div cdkDrag>move</div> -->
-<!-- <li #draggableel >drag me 3</li> -->
+<!-- <li #draggableelllllll >drag me 3</li> -->
 </p>
 
 
@@ -47,5 +48,6 @@
     (eventDrop)="updateEvent($event)"
     (eventResize)="updateEvent($event)" 
     (clickButton)="clickButton($event)"
+    (eventReceive)="eventReceive($event)"
   ></full-calendar>
 </article>

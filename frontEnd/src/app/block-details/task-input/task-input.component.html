@@ -1,0 +1,41 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label>
+      Task Name:
+      <input type="text" formControlName="taskName" required>
+    </label>
+  
+    <div formGroupName="rates">
+      <h3>Rates</h3>
+  
+      <label>
+        Speed: (Kms/Hr)
+        <input type="text" formControlName="speed">
+      </label>
+  
+      <label>
+        Number of Resources:
+        <input type="text" formControlName="resources">
+      </label>
+      
+    </div>
+  
+  
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  </form>
+  
+  <hr>
+  
+  
+  <p>
+    Form Value: {{ profileForm.value | json }}
+  </p>
+  
+  
+  <p>
+    Form Status: {{ profileForm.status }}
+  </p>
+  
+  <p>
+    <button (click)="updateProfile()">Generic Task</button>
+  </p>
+  

@@ -29,12 +29,15 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   listings:any;
   popUp: any;
   selections: any;
+  testEvent: any;
 
   @ViewChild('fullcalendar') fullcalendar: FullCalendarComponent;
   @ViewChild('dropremove') checkbox: any;
+  @ViewChild('externalevents') containerEl: any;
   @ViewChildren('draggableel') draggable: any;
 
   ngOnInit() {
+    this.testEvent = "4:00:00";
     this.options = {
       allDayDefault: false,
       aspectRatio:1.5,
@@ -64,7 +67,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     this.events = this.eventservice.getData()
     .subscribe(
           res => {
-            console.log(res)
+            // console.log(res)
             console.log("initialise events");
             this.events = res;
           },
@@ -73,9 +76,6 @@ export class CalendarComponent implements OnInit, AfterViewInit {
           }
         );
 
-    
-
-
   }
 
   ngAfterViewInit(){
@@ -83,17 +83,17 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     this.lists = this.eventservice.getListData()
     .subscribe(
           res => {
-            console.log(res)
+            // console.log(res)
                 
             let arr = [];
               for (let prop in res){
-                  console.log(arr)
+                  // console.log(arr)
                   arr.push(res[prop]);
             }
                 
             console.log("find new listed jobs");
             this.lists = arr;
-            console.log(arr)
+            // console.log(arr)
             },
             err => {
               console.log("Error occured in loading lists");
@@ -106,13 +106,13 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
       let weeks: any = elef.querySelectorAll(".fc-row").length;
             // loop to assign all attributes to DOM elements
-            console.log(weeks);
+            // console.log(weeks);
       
             var i: number;
             for(i=0; i<weeks;i++){
               elef.querySelectorAll(".fc-row")[i].style.zIndex=20-i;     
-              console.log(elef.querySelectorAll(".fc-row")[i]);     
-              console.log("fc row");
+              // console.log(elef.querySelectorAll(".fc-row")[i]);     
+              // console.log("fc row");
               }
       
       this.refreshToolTips();
@@ -122,20 +122,44 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     setTimeout(()=>{
 
           console.log("why the hell is this not working!");
-        console.log(this.draggable._results.length);
+        // console.log(this.draggable._results[0]);
+
+        // new Draggable(this.draggable._results[0].nativeElement, {
+        //   eventData: {
+        //     title: 'my event',
+        //     duration: '02:00'
+        //   }
+        // });
         
-            for (var i = 0; i < this.draggable._results.length; i++) {
-              // this.draggable._results[i].nativeElement.draggable = true;
-              // console.log(this.draggable);
-              new Draggable(this.draggable._results[i].nativeElement, {
-              });
+        // for (var i = 0; i < this.draggable._results.length; i++) {
+          // this.draggable._results[i].nativeElement.draggable = true;
+          // console.log(this.draggable);
+          new Draggable(this.containerEl.nativeElement, {
+            itemSelector: '.drag',
+            
+            eventData: function(eventEl) {
+              console.log("...think once the task has been brought through via a data transfer, as a service, or temporary array (not great as lost everytime browser is refreshed), then can pass variables from the task, (using a lookup on the draggable element text), into eventData which will provide the values upon drop through the eventReceive(), meaning eventReceive should then update the DB via data service rather than through the use of dropped() as used previously.")
+              console.log(eventEl)
+              return {
+                title: eventEl.innerText,
+                duration: { hours: 10 }, 
+                machine: "Greg's the man"
+              };
             }
-      }, 4000)
+            
+          });
+        // }
+  }, 4000)
 
   }
 
 
 // All Methods below:
+
+eventReceive(event){
+  console.log("the event has been received.....................................................................................................................................................................................................................")
+  console.log(event)
+}
 
 eventrender(event)
     {
@@ -148,7 +172,7 @@ refreshToolTips(){
       setTimeout(()=> {
 
       var el = this.element.nativeElement;
-          console.log(Object.values(this.events[0]).join("\r\n"));
+          // console.log(Object.values(this.events[0]).join("\r\n"));
       // want a date ordered array
       this.events.sort(function(a,b){
       var A = new Date(a.start);
@@ -171,19 +195,19 @@ refreshToolTips(){
         })
       }
 
-      console.log(el.querySelectorAll(".fc-title")[0].style.zIndex);
-      console.log("an element of DOM");
+      // console.log(el.querySelectorAll(".fc-title")[0].style.zIndex);
+      // console.log("an element of DOM");
 
-      console.log(el.querySelectorAll(".fc-content"))
+      // console.log(el.querySelectorAll(".fc-content"))
       this.popUp = true;
-      console.log("fccontent");
-      console.log(this.events);
-      console.log("event content");
+      // console.log("fccontent");
+      // console.log(this.events);
+      // console.log("event content");
 
       // console.log(el.querySelectorAll("a")[0].setAttribute("mattooltip", "tooltips is here now!"))
         }, 1000)
 
-    console.log(elef.querySelectorAll(".fc-content"));
+    // console.log(elef.querySelectorAll(".fc-content"));
     // console.log(elef.querySelectorAll(".fc-title")[0].style.zIndex);
 
     console.log("finishing the Tooltips refresh and showing content then title zIndexes");
@@ -193,7 +217,7 @@ refreshToolTips(){
 
   eventClick(model) {
     this.displayEvent = model.event._calendar.component.props.currentDate;
-    console.log(model.event.extendedProps._id);
+    // console.log(model.event.extendedProps._id);
     console.log("clicking event");
     // want to include a pop up screen here to allow the event to be modified
     // this.popUp = true;
@@ -204,21 +228,21 @@ refreshToolTips(){
         if (selection) {
           this.selections = selection;
           // selections here is an array of those items selected
-          console.log(this.selections);
+          // console.log(this.selections);
           // next want to patch this info to DB
           console.log("patch testing");
-          console.log(model.event.extendedProps._id);
+          // console.log(model.event.extendedProps._id);
               this.eventservice.updateEvent(model.event.extendedProps._id, {
               "Staff": this.selections[1],
               "Machine": this.selections[0]
                 })
                 .subscribe(
                 res => {
-                  console.log(res);
+                  // console.log(res);
                   console.log("update events");
                   //this.events = this.events.concat();
                   
-                  console.log(this.events);
+                  // console.log(this.events);
                   this.refreshToolTips();
                 },
                 err => {
@@ -239,7 +263,7 @@ console.log("this means I don't require a render method from the click event")
   eventDragStop(model) {
     this.events = this.events.concat();
     console.log("are we here?")
-    console.log(model.event._calendar.component.props.currentDate);
+    // console.log(model.event._calendar.component.props.currentDate);
   }
   dateClick(model) {
     console.log(model);
@@ -249,14 +273,14 @@ console.log("this means I don't require a render method from the click event")
   }
 
   dropped(model) {
-
+    console.log(model);
     this.eventservice.PostEvent({
     "title": model.draggedEl.innerHTML,
     "start": model.dateStr
     })
     .subscribe(
           res => {
-            console.log(res[0]);
+            // console.log(res[0]);
             console.log("post events");
             
             // this.events.push(res)
@@ -274,7 +298,7 @@ console.log("this means I don't require a render method from the click event")
     
     if(this.checkbox.nativeElement.checked){
           console.log("yes this is working baby!")
-          console.log(this.checkbox.nativeElement.checked);
+          // console.log(this.checkbox.nativeElement.checked);
     }
 
   }
@@ -283,19 +307,19 @@ console.log("this means I don't require a render method from the click event")
   }
   updateEvent(model: any) {
     console.log("or are we here?");
-    console.log(model);
-    console.log(model.event.extendedProps._id);
+    // console.log(model);
+    // console.log(model.event.extendedProps._id);
   
     this.eventservice.updateEvent(model.event.extendedProps._id, {
         "start": model.event.start,
         "end": model.event.end,
-        "allDay": true,
+        "allDay": false,
         "Staff": model.event.Staff,
         "Machine": model.event.Machine
     })
     .subscribe(
           res => {
-            console.log(res);
+            // console.log(res);
             console.log("update events");
             // this.events = this.events.concat(res);
 
@@ -308,12 +332,12 @@ console.log("this means I don't require a render method from the click event")
             this.events.map((obj, index) => {
               if(res._id === obj._id) {
                 console.log("showme the money");
-                console.log(index);
+                // console.log(index);
                 this.events[index] = res
               } 
             })
             // this.events.map(obj => res._id === obj._id);
-            console.log(this.events);
+            // console.log(this.events);
             this.refreshToolTips();
           },
           err => {

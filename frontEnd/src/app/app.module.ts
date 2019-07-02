@@ -7,7 +7,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FullCalenderComponent } from './full-calender/full-calender.component';
+// import { FullCalenderComponent } from './full-calender/full-calender.component';
 // import { FullCalendarModule } from 'ng-fullcalendar'
 import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
 
@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatFormFieldModule, MatNativeDateModule, MatSelectModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import 'hammerjs';
@@ -29,6 +30,9 @@ import { DataTablesModule } from 'angular-datatables';
 import { GanttChartComponent } from './gantt-chart/gantt-chart.component';
 import { MapChartComponent } from './map-chart/map-chart.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { BlockDetailsComponent } from './block-details/block-details.component';
+import { BlockDragComponent } from './block-details/block-drag/block-drag.component';
+import { TaskInputComponent } from './block-details/task-input/task-input.component';
 
 
 @NgModule({
@@ -41,6 +45,9 @@ import { CalendarComponent } from './calendar/calendar.component';
     GanttChartComponent,
     MapChartComponent,
     CalendarComponent,
+    BlockDetailsComponent,
+    BlockDragComponent,
+    TaskInputComponent,
     
    
   ],
@@ -50,6 +57,10 @@ import { CalendarComponent } from './calendar/calendar.component';
 	{
 		path: "full-calendar", 
 		component: CalendarComponent
+  },
+  {
+		path: "block-details", 
+		component: BlockDetailsComponent
 	},
 	{
 		path: "data-table", 
@@ -64,7 +75,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 		component: MapChartComponent
   }
 	]),
-	DataTablesModule,
+	  DataTablesModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -76,7 +87,8 @@ import { CalendarComponent } from './calendar/calendar.component';
     MatNativeDateModule,
     MatSelectModule,
     MatTooltipModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [DatePipe],

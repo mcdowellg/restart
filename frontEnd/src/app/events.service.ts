@@ -9,11 +9,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class EventsService {
 
-eventsUrl = 'https://gmcdnodeapp.azurewebsites.net/events';
-  eventUrl = 'https://gmcdnodeapp.azurewebsites.net/event/';
-  listURL = 'https://gmcdnodeapp.azurewebsites.net/lists';
-  gpsUrl = 'https://gmcdnodeapp.azurewebsites.net/gps';
-  blockUrl = 'https://gmcdnodeapp.azurewebsites.net/blocks';
+  eventsUrl = 'https://nodeappvitiplanning.azurewebsites.net/events';
+  eventUrl = 'https://nodeappvitiplanning.azurewebsites.net/event/';
+  listURL = 'https://nodeappvitiplanning.azurewebsites.net/lists';
+  gpsUrl = 'https://nodeappvitiplanning.azurewebsites.net/gps';
+  blockUrl = 'https://nodeappvitiplanning.azurewebsites.net/blocks';
+  tasksUrl = 'https://nodeappvitiplanning.azurewebsites.net/tasks';
 
   
   event: any;
@@ -31,6 +32,16 @@ date = Date.now();
 //         end: '2019-03-12'
 //       }]
 // }
+
+getTaskData():Observable<any> {
+  return this.http.get<any>(this.tasksUrl);
+}
+
+postTaskData(eventPassed: any):Observable<any> {
+  // console.log(eventPassed);
+  console.log("is anything happening?");
+  return this.http.post<any>(this.tasksUrl, eventPassed);
+}
 
 getListData():Observable<any> {
             this.list = this.http.get<any>(this.listURL);

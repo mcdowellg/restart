@@ -14,8 +14,8 @@
 }
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
+#main-nav {
+  position: sticky;
   top: 0;
   width: 100%;
 }
@@ -27,9 +27,9 @@
 
 .listing {
     
-    width: 175px;
-    height: 635px;
-	position: fixed;
+    width: 12.5vw;
+    height: 100vh;
+	  position: sticky;
     
     }
 
