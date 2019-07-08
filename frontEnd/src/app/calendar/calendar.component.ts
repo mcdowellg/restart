@@ -37,6 +37,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   @ViewChildren('draggableel') draggable: any;
 
   ngOnInit() {
+    
     this.testEvent = "4:00:00";
     this.options = {
       allDayDefault: false,
@@ -50,11 +51,12 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       },
       businessHours: {
         // days of week. an array of zero-based day of week integers (0=Sunday)
-        daysOfWeek: [ 1, 2, 3, 4 ], // Monday - Thursday
+        daysOfWeek: [ 1, 2, 3, 4, 5], // Monday - Thursday
       
-        startTime: '8:00', // a start time (10am in this example)
+        startTime: '8:00', // a start time (8am in this example)
         endTime: '18:00', // an end time (6pm in this example)
       },
+      selectConstraint: "businessHours",
       header: {
         left: 'prev,next today',
         center: 'title',
@@ -80,10 +82,10 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(){
 
-    this.lists = this.eventservice.getListData()
+    this.lists = this.eventservice.getTaskData()
     .subscribe(
           res => {
-            // console.log(res)
+            console.log(res)
                 
             let arr = [];
               for (let prop in res){
@@ -93,13 +95,15 @@ export class CalendarComponent implements OnInit, AfterViewInit {
                 
             console.log("find new listed jobs");
             this.lists = arr;
-            // console.log(arr)
+            console.log(arr)
             },
             err => {
               console.log("Error occured in loading lists");
             }
           );
 
+          setTimeout(()=>{ console.log(this.lists), 10000});
+            
     var elef = this.element.nativeElement;
 
     setTimeout(()=>{
@@ -139,17 +143,31 @@ export class CalendarComponent implements OnInit, AfterViewInit {
             
             eventData: function(eventEl) {
               console.log("...think once the task has been brought through via a data transfer, as a service, or temporary array (not great as lost everytime browser is refreshed), then can pass variables from the task, (using a lookup on the draggable element text), into eventData which will provide the values upon drop through the eventReceive(), meaning eventReceive should then update the DB via data service rather than through the use of dropped() as used previously.")
-              console.log(eventEl)
+              console.log(eventEl.innerHTML)
+              console.log(eventEl.innerHTML.split(">")[1])
+
+              console.log(Number(eventEl.innerHTML.split(">")[1].split(" <")[0]))
+              
+              // this.lists.map((obj, index) => {
+              //   console.log(obj);
+              //   if(eventEl.innerText === obj.Tasks[0].taskName) {
+              //     console.log("showme the money");
+              //     // console.log(index);
+              //     // this.events[index] = res
+              //   } 
+              // })
+
               return {
                 title: eventEl.innerText,
-                duration: { hours: 10 }, 
-                machine: "Greg's the man"
+                duration: { hours: Number(eventEl.innerHTML.split(">")[1].split(" <")[0]) },
+                Row_KMs:  Number(eventEl.innerHTML.split(">")[3].split(" <")[0]),
+                Resource: "Can add whatever else we like here"
               };
             }
             
           });
         // }
-  }, 4000)
+  }, 8000)
 
   }
 
@@ -157,8 +175,40 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 // All Methods below:
 
 eventReceive(event){
-  console.log("the event has been received.....................................................................................................................................................................................................................")
+  console.log("the event has been received.... Now need to post to DB")
   console.log(event)
+///////////////////////////////////////////////////////
+  
+  this.eventservice.PostEvent({
+  "title": event.draggedEl.innerText, 
+  "start": event.event.start, 
+  "end": event.event.end
+  
+  })
+  .subscribe(
+        res => {
+          // console.log(res[0]);
+          console.log("post events");
+          
+          // this.events.push(res)
+          // this.events = this.events.slice(0,3);
+          this.events = this.events.concat(res);
+
+        },
+        err => {
+          console.log("Error occured");
+        }
+  );
+
+  this.refreshToolTips();
+
+  
+  if(this.checkbox.nativeElement.checked){
+        console.log("yes this is working baby!")
+        // console.log(this.checkbox.nativeElement.checked);
+  }
+////////////////////////////////////////////////////////
+
 }
 
 eventrender(event)
@@ -273,33 +323,33 @@ console.log("this means I don't require a render method from the click event")
   }
 
   dropped(model) {
-    console.log(model);
-    this.eventservice.PostEvent({
-    "title": model.draggedEl.innerHTML,
-    "start": model.dateStr
-    })
-    .subscribe(
-          res => {
-            // console.log(res[0]);
-            console.log("post events");
+    console.log("This is now redundant as all actions should have an eventData included - all the steps below have been moved to the eventReceive method above");
+    // this.eventservice.PostEvent({
+    // "title": model.draggedEl.innerHTML,
+    // "start": model.dateStr
+    // })
+    // .subscribe(
+    //       res => {
+    //         // console.log(res[0]);
+    //         console.log("post events");
             
-            // this.events.push(res)
-            // this.events = this.events.slice(0,3);
-            this.events = this.events.concat(res);
-
-          },
-          err => {
-            console.log("Error occured");
-          }
-    );
-
-    this.refreshToolTips();
-
+    //         // this.events.push(res)
+    //         // this.events = this.events.slice(0,3);
+    //         this.events = this.events.concat(res);
+  
+    //       },
+    //       err => {
+    //         console.log("Error occured");
+    //       }
+    // );
+  
+    // this.refreshToolTips();
+  
     
-    if(this.checkbox.nativeElement.checked){
-          console.log("yes this is working baby!")
-          // console.log(this.checkbox.nativeElement.checked);
-    }
+    // if(this.checkbox.nativeElement.checked){
+    //       console.log("yes this is working baby!")
+    //       // console.log(this.checkbox.nativeElement.checked);
+    // }
 
   }
   clickButton(model) {

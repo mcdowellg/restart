@@ -15,6 +15,9 @@ export class BlockDetailsComponent implements OnInit {
   constructor(private eventservice: EventsService, private fb: FormBuilder) {};
 
   details: any = [];
+  row_kms: any = [];
+  total_vines: any = [];
+  row_numbers: any = [];
 
     profileForm = this.fb.group({
     taskName: ['', Validators.required],
@@ -37,9 +40,49 @@ export class BlockDetailsComponent implements OnInit {
 
   onSubmit() {
     // Combine input data to create a group task that can then be imported into the calendar script.
-    console.warn("Submitting data");
-    this.details = [this.profileForm.value, this.allocatedTasks];
-    console.log(this.details)
+
+    // Get row kms, turns and vines
+
+    var row_kms = Number(this.calculations.reduce(function(accumulator, currentValue, currentIndex, array) {
+      return accumulator + Number(currentValue['Row_KM']);
+    },0));
+
+    var row_numbers = this.calculations.reduce(function(accumulator, currentValue, currentIndex, array) {
+      return accumulator + Number(currentValue['Row_Numbers']);
+    },0);
+
+    var total_vines = this.calculations.reduce(function(accumulator, currentValue, currentIndex, array) {
+      return accumulator + Number(currentValue['Total_Vines']);
+    },0);
+
+    // Now calculate duration
+
+    // Duration equals (distance/speed)/machines
+
+
+    var speed  = Number(this.profileForm.value.rates.speed);
+    var resources = Number(this.profileForm.value.rates.resources);
+
+    console.warn(resources);
+
+    var duration = (row_kms/speed)/resources;
+
+    console.warn(this.calculations);
+
+    this.details = [this.profileForm.value, this.allocatedTasks, duration, row_kms, row_numbers, total_vines];
+    console.log(this.details);
+    // Now want to post this data to the Tasks model in DB
+    this.eventservice.postTaskData({
+      "Tasks": this.details
+      })
+      .subscribe(
+            res => {
+              console.log("posted task");
+            },
+            err => {
+              console.log("Error occured");
+            }
+      );
   }
 
        scheduledTasks:any = [];
@@ -67,6 +110,7 @@ export class BlockDetailsComponent implements OnInit {
     }
   
     allocatedTasks = [];
+    calculations = [];
   
     drop(event: CdkDragDrop<string[]>) {
       console.log(event);
@@ -79,7 +123,9 @@ export class BlockDetailsComponent implements OnInit {
                           event.currentIndex);
       }
       this.allocatedTasks = event.container.data;
-      // console.log(this.allocatedTasks.length>0)
+      console.log(this.allocatedTasks);
+      // here we need to undertake the calculations before it is submitted to the calendar schedule
+      this.calculations = this.allocatedTasks; // find or map or filter to get values for RowKMs and Row Numbers for turn time, make calculations and provide back to this.details!
     }
   }
   
